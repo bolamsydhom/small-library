@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Library</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container hide" id="tableData">
+        <div class="row justify-content-center">
+            <h5 class="mb-5 mt-5">Your books are</h5>
+        </div>
+        <div class="row justify-content-center">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Book Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Author Name</th>
+                        <th scope="col">Author Email</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <th scope="row" id="id">%id%</th>
+                        <td id='bookName'>%bookName%</td>
+                        <td id='price'>%price%</td>
+                        <td id='date'>%date%</td>
+                        <td id='authorName'>%authorName%</td>
+                        <td id='authorEmail'>%authorMail%</td>
+                        <td>
+                            <div class="btn btn-info" id="%id%">Edit</div>
+                            <div class="btn btn-info hide" id="%id%">save</div>
+                            <div class="btn btn-danger" id="%id%">delete</div>
+                        </td>
+
+                    </tr> -->
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="container hide" id="theForm">
+
+        <form class="needs-validation" id="myForm" novalidate>
+            <div class="form-row justify-content-center">
+                <div class="col-md-9 mb-3 ">
+                    <label for="bookNumber">Book Number</label>
+                    <input type="text" class="form-control" id="bookNumberIn" value="" disabled>
+
+                </div>
+                <div class="col-md-9 mb-3 ">
+                    <label for="bookName">Book Name</label>
+                    <input type="text" class="form-control" id="bookNameIn" placeholder="Book Name" required>
+                    <div class="invalid-tooltip">
+                        Please provide a valid Name.
+                    </div>
+                </div>
+
+                <div class="col-md-9 mb-3">
+                    <label for="price">Price</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" id="priceIn"
+                            aria-describedby="validationTooltipPricePrepend" required>
+
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="validationTooltipPricePrepend">LE</span>
+                        </div>
+
+                        <div class="invalid-tooltip">
+                            Please provide a valid price.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9 mb-3">
+                    <label for="pubDate">Publish Date</label>
+                    <div class="input-group">
+                        <input type="date" class="form-control" id="pubDateIn" required>
+                        <div class="invalid-tooltip">
+                            Please choose a valid Date.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row justify-content-center ">
+
+                <div class="col-md-9 mb-3">
+                    <label for="authorName">Author name</label>
+                    <input type="text" class="form-control" id="authorNameIn" placeholder="Author Name" required>
+
+                    <div class="invalid-tooltip">
+                        Please choose a valid author.
+                    </div>
+                </div>
+                <div class="col-md-9 mb-3">
+                    <label for="validationTooltip05">Author Email</label>
+                    <input type="email" class="form-control" id="authorEmailIn" placeholder="Author Email"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required invalid>
+                    <div class="invalid-tooltip">
+                        Please provide a valid Email.
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+
+                <button class="btn btn-primary " onclick="addBook()" type="button">Add</button>
+                <button class="btn btn-danger ml-5" onclick="resetForm()" type="button">reset</button>
+            </div>
+        </form>
+    </div>
+    <div class="container-fluid background vh-100">
+        <div class="container welcome_page">
+
+            <div class="col-12 align-self-center  align-middle">
+                <h1 class="display-5 text-center align-middle text-light">Welcome Back</h1>
+                <h5 class="display-6 text-center align-middle text-light"> Please Enter the Number of Books you have</h5
+                    text-center align-middle text-light">
+                <!-- Material input -->
+                <form>
+                    <div class="form-row align-items-center text-center align-middle">
+                        <div class="col-4"></div>
+                        <div class="col-xl-4 col-md-12 col-sm-12">
+                            <input type="number" class="form-control mb-2" id="numberOfBooks" placeholder="Number">
+                        </div>
+                        <div class="col-4">
+                            <div class="col-xl-4 col-md-12 col-sm-12">
+                                <button type="button" class="btn btn-primary mb-2" onclick="startApp()"
+                                    id="welcomeBtn">Submit</button>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
